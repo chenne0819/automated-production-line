@@ -23,8 +23,8 @@
 
 1.下載 Dobot 和 Yolov7 程式碼：
 
--Clone 或下載 Dobot 的程式碼到本地目錄。
--Clone 或下載 Yolov7 的程式碼到本地目錄。
+-Clone 或下載 Dobot 的程式碼到本地目錄。<br>
+-Clone 或下載 Yolov7 的程式碼到本地目錄。<br>
 -在Dobot 和 Yolov7 的資料夾中找到 My_code 中的程式碼。
 
 2.安裝相依套件：
