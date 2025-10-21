@@ -1,10 +1,10 @@
 # automated-production-line
 
-[YouTube 解說連結](https://www.youtube.com/your-video-link)
+[YouTube Demo](https://youtu.be/dcsEkommlak)
 
 ## 專案說明
 
-這個專案是關於自動化訂單處理的項目。它使用資料庫取得訂單和物體辨識技術來辨識訂單中的物品，從而提高訂單處理的效率並降低錯誤的可能性。
+這個專案是關於自動化&智慧化訂單處理的項目。它使用資料庫取得訂單和物體辨識技術來辨識訂單中的物品，從而提高訂單處理的效率並降低錯誤的可能性。
 
 ### 目標
 
@@ -28,12 +28,14 @@
 -在Dobot 和 Yolov7 的資料夾中找到 My_code 中的程式碼。
 
 2.安裝相依套件：
+cd yolov7
 -pip install -r requirement.txt
 -pip install pymsql
 
 3.修改 Dobot 伺服器端設定：
 
-這邊運用到伺服器端口的原因:為了模擬在工廠的手臂可能沒有python的api所以會用到TCP傳輸協定將訊息傳給手臂
+這邊運用到伺服器端口的原因:
+為了模擬在工廠的手臂可能沒有python的api，所以會用到TCP傳輸協定將訊息傳給手臂，
 剛好python內建就有包含socket的套件
 
 (1)打開 dobot_yolomove.py 檔案，找到並修改以下參數：
@@ -52,22 +54,16 @@ HOST：設定為網路ip位置。
 
 -HOST：設定為 Dobot 伺服器端的主機地址。
 -weights 的路徑：設定為 Yolov7 模型權重的路徑。
-如果你不想修改程式碼，你可以在終端機中執行以下指令：python 路徑\detect_fix.py --weights 路徑\exp\weights\best_202.pt --source 0
-其他詳細資料可以看官方的文檔
 
 (5)執行程式：
 
-首先執行Server端 dobot_yolomove.py 檔案。
-然後執行Client端 detect_fix.py 檔案。
+首先執行Server端 dobot/dobot_yolomove.py 檔案。
+然後執行Client端 yolov7/detect_fix.py 檔案。
 請根據你的實際情況，將範例中的路徑和設定調整為正確的值。請確保你已按照上述步驟進行修改和設定，以確保程式的正常執行。
 
 ## 貢獻
-設計簡單版本結合YOLO運用地的生產線
-結合資料庫達成一個簡易的訂單模擬
-
+設計簡單版本結合YOLO運用的生產線，並且結合資料庫達成一個簡易的訂單模擬
 
 ## 聯絡方式
-
 如果有任何問題，請通過以下方式聯絡我們：
-
 - 電子郵件：cucuchen105@gmail.com
