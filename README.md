@@ -4,76 +4,101 @@
 
 ---
 
-## 專案說明
+## Project Description
 
-這個專案是關於自動化&智慧化訂單處理的項目。它使用資料庫取得訂單和物體辨識技術來辨識訂單中的物品，從而提高訂單處理的效率並降低錯誤的可能性。
-
----
-
-### 目標
-
-- 自動化訂單處理，從資料庫MySQL中抓取訂單資料並辨識訂單中的物品。
-- 提升準確性和效能，使用物體辨識技術（如 Yolo）快速而準確地識別訂單中的物品。
-- 提高訂單處理速度，整合機器手臂以實現自動化的物品分類過程。
+This project focuses on building an automated and intelligent order-processing workflow. It retrieves order data from a database and uses object detection to identify items within each order, improving processing efficiency and reducing the likelihood of human error.
 
 ---
 
-## 專案結構
+### Objectives
 
-- My_code/：我自己的程式碼和更改過的detect.py。
-- dobot/：Dobot 官方程式碼。
-- yolov7/：Yolov7 官方程式碼。
-- image_label/：包含訓練圖片、標籤以及測試圖片，用於檢測訓練結果。
+- Automate order processing by retrieving order data from a MySQL database and identifying items within each order.
+- Improve accuracy and performance by using object-detection techniques (such as YOLO) to quickly and reliably recognize objects.
+- Increase processing speed by integrating a robotic arm to automate the item-sorting workflow.
 
 ---
 
-## 安裝與使用
+## Project Structure
 
-1.下載 Dobot 和 Yolov7 程式碼：
+- **My_code/**: Custom scripts and a modified version of `detect.py`.
+- **dobot/**: Official Dobot SDK and related code.
+- **yolov7/**: Official YOLOv7 source code.
+- **image_label/**: Training images, labels, and test images for object-detection training and validation.
 
-- Clone 或下載 Dobot 的程式碼到本地目錄。<br>
-- Clone 或下載 Yolov7 的程式碼到本地目錄。<br>
-- 在Dobot 和 Yolov7 的資料夾中找到 My_code 中的程式碼。
+---
 
-2.安裝相依套件：
+## Installation & Usage
+
+### 1. Download Dobot and YOLOv7 Code
+
+- Clone or download the Dobot SDK to your local directory.  
+- Clone or download the YOLOv7 repository.  
+- Copy the scripts inside **My_code/** into the corresponding folders of Dobot and YOLOv7.
+
+### 2. Install Dependencies
+
 ```bash
-  cd yolov7
-  pip install -r requirement.txt
-  pip install pymsql
+cd yolov7
+pip install -r requirements.txt
+pip install pymysql
 ```
 
-3.修改 Dobot 伺服器端設定：
+### 3. Configure the Dobot Server
 
-這邊運用到伺服器端口的原因:
-為了模擬在工廠的手臂可能沒有python的api，所以會用到TCP傳輸協定將訊息傳給手臂，
-剛好python內建就有包含socket的套件
+This project uses TCP communication to simulate a factory scenario where the robotic arm may not directly support Python APIs. Python’s built-in socket module is used to send commands to the arm.
 
-(1)打開 dobot_yolomove.py 檔案，找到並修改以下參數：
+1. Open dobot_yolomove.py and update:
 
-HOST：設定為網路ip位置。
+ - HOST: Set it to your local network IP.
 
-(2)根據手臂的位置、座標系、以及動作來修改dobot_yolomove.py的機器動作執行指令
+2. Modify robot motion commands in dobot_yolomove.py according to:
 
-(3)設定資料庫：
+ - Your robot’s position
 
-建立與影片中相同的資料庫，並記下資料庫的使用者名稱和密碼。
+ - Coordinate system
 
-(4)修改 Yolov7 客戶端設定：
+ - Picking and sorting actions
 
-- 打開 detect_fix.py 檔案，找到並修改以下參數：
+3. Database Setup
 
-- HOST：設定為 Dobot 伺服器端的主機地址。
-- weights 的路徑：設定為 Yolov7 模型權重的路徑。
+ - Create a database identical to the one shown in the demo video.
 
-(5)執行程式：
+ - Keep track of your database username and password.
 
-首先執行Server端 dobot/dobot_yolomove.py 檔案。
-然後執行Client端 yolov7/detect_fix.py 檔案。
-請根據你的實際情況，將範例中的路徑和設定調整為正確的值。請確保你已按照上述步驟進行修改和設定，以確保程式的正常執行。
+4. Configure the YOLOv7 Client
 
-## 貢獻
-設計簡單版本結合YOLO運用的生產線，並且結合資料庫達成一個簡易的訂單模擬
+ Open detect_fix.py and modify:
 
-## 聯絡方式
-如果有任何問題，請通過以下方式聯絡我們：
-- 電子郵件：cucuchen105@gmail.com
+ - HOST: Set this to the Dobot server IP.
+
+ - weights path: Provide the path to your YOLOv7 model weights.
+
+5. Run the Program
+
+Start the server:
+
+```bash
+  python dobot/dobot_yolomove.py
+```
+
+Start the client:
+
+```bash
+  python yolov7/detect_fix.py
+```
+
+Adjust paths and settings according to your environment to ensure the system runs correctly.
+
+---
+
+### Contribution
+
+Designed a simplified production-line system combining YOLO-based object detection with a database-driven order-processing workflow, simulating a lightweight automated sorting line.
+
+---
+
+### Contact
+
+If you have any questions, feel free to contact:
+
+ - Email: cucuchen105@gmail.com
