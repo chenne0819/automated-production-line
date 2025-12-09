@@ -2,15 +2,21 @@
 
 [YouTube Demo](https://youtu.be/dcsEkommlak)
 
+---
+
 ## 專案說明
 
 這個專案是關於自動化&智慧化訂單處理的項目。它使用資料庫取得訂單和物體辨識技術來辨識訂單中的物品，從而提高訂單處理的效率並降低錯誤的可能性。
+
+---
 
 ### 目標
 
 - 自動化訂單處理，從資料庫MySQL中抓取訂單資料並辨識訂單中的物品。
 - 提升準確性和效能，使用物體辨識技術（如 Yolo）快速而準確地識別訂單中的物品。
 - 提高訂單處理速度，整合機器手臂以實現自動化的物品分類過程。
+
+---
 
 ## 專案結構
 
@@ -19,18 +25,22 @@
 - yolov7/：Yolov7 官方程式碼。
 - image_label/：包含訓練圖片、標籤以及測試圖片，用於檢測訓練結果。
 
+---
+
 ## 安裝與使用
 
 1.下載 Dobot 和 Yolov7 程式碼：
 
--Clone 或下載 Dobot 的程式碼到本地目錄。<br>
--Clone 或下載 Yolov7 的程式碼到本地目錄。<br>
--在Dobot 和 Yolov7 的資料夾中找到 My_code 中的程式碼。
+- Clone 或下載 Dobot 的程式碼到本地目錄。<br>
+- Clone 或下載 Yolov7 的程式碼到本地目錄。<br>
+- 在Dobot 和 Yolov7 的資料夾中找到 My_code 中的程式碼。
 
 2.安裝相依套件：
-cd yolov7
--pip install -r requirement.txt
--pip install pymsql
+```bash
+  cd yolov7
+  pip install -r requirement.txt
+  pip install pymsql
+```
 
 3.修改 Dobot 伺服器端設定：
 
@@ -50,10 +60,10 @@ HOST：設定為網路ip位置。
 
 (4)修改 Yolov7 客戶端設定：
 
--打開 detect_fix.py 檔案，找到並修改以下參數：
+- 打開 detect_fix.py 檔案，找到並修改以下參數：
 
--HOST：設定為 Dobot 伺服器端的主機地址。
--weights 的路徑：設定為 Yolov7 模型權重的路徑。
+- HOST：設定為 Dobot 伺服器端的主機地址。
+- weights 的路徑：設定為 Yolov7 模型權重的路徑。
 
 (5)執行程式：
 
