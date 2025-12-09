@@ -49,45 +49,45 @@ This project uses TCP communication to simulate a factory scenario where the rob
 
 1. Open dobot_yolomove.py and update:
 
- - HOST: Set it to your local network IP.
+  - HOST: Set it to your local network IP.
 
 2. Modify robot motion commands in dobot_yolomove.py according to:
 
- - Your robot’s position
+  - Your robot’s position
 
- - Coordinate system
+  - Coordinate system
 
- - Picking and sorting actions
+  - Picking and sorting actions
 
 3. Database Setup
 
- - Create a database identical to the one shown in the demo video.
+  - Create a database identical to the one shown in the demo video.
 
- - Keep track of your database username and password.
+  - Keep track of your database username and password.
 
 4. Configure the YOLOv7 Client
 
- Open detect_fix.py and modify:
+  Open detect_fix.py and modify:
 
- - HOST: Set this to the Dobot server IP.
+  - HOST: Set this to the Dobot server IP.
 
- - weights path: Provide the path to your YOLOv7 model weights.
+  - weights path: Provide the path to your YOLOv7 model weights.
 
 5. Run the Program
 
-Start the server:
+ Start the server:
+ 
+ ```bash
+   python dobot/dobot_yolomove.py
+ ```
+ 
+ Start the client:
+ 
+ ```bash
+   python yolov7/detect_fix.py
+ ```
 
-```bash
-  python dobot/dobot_yolomove.py
-```
-
-Start the client:
-
-```bash
-  python yolov7/detect_fix.py
-```
-
-Adjust paths and settings according to your environment to ensure the system runs correctly.
+ Adjust paths and settings according to your environment to ensure the system runs correctly.
 
 ---
 
